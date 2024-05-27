@@ -1,25 +1,16 @@
-import os
-from sqlalchemy import create_engine
+import pymongo
 
-# Check database file existence
-if not os.path.exists('localesComida_centrosDeportivos.db'):
-  print("Error: El archivo de base de datos 'localesComida_centrosDeportivos.db' no existe.")
-  exit(1)
-
-
-# Create engine with connection options
-engine = create_engine(
-    'sqlite:///localesComida_centrosDeportivos.db',
-    pool_size=5,
-    connect_args={'check_same_thread': False}
-)
-
+# Conexión a MongoDB Compass
 try:
-    with engine.connect() as connection:
-        print("Conexión a la base de datos establecida correctamente.")
-except FileNotFoundError as e:
-    print(f"Error: El archivo de base de datos no se encontró: {e}")
-except OperationalError as e:
-    print(f"Error de base de datos: {e}")
+    # Conexión a MongoDB local
+    client = pymongo.MongoClient('mongodb://localhost:27017/')
+
+    # Seleccionar base de datos y colección
+    db = client['mi_base_de_datos']
+    collection = db['mi_coleccion']
+
+    print("Conexión a la base de datos establecida correctamente.")
+except pymongo.errors.ConnectionFailure as e:
+    print(f"Error de conexión a la base de datos: {e}")
 except Exception as e:
     print(f"Error inesperado: {e}")

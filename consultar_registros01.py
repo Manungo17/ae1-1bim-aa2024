@@ -1,26 +1,26 @@
+import pymongo
 
+# Conectar a MongoDB local
+try:
+    client = pymongo.MongoClient('mongodb://localhost:27017/')
+    db = client['mi_base_de_datos']  # Reemplaza con el nombre de tu base de datos
 
-from sqlalchemy.orm import sessionmaker
-# se importa la clase(s) del archivo crear_entidades
-from crear_entidades import LocalesComida
-from crear_entidades import CentrosDeportivos
-# se importa el engine
-from base_datos import engine
+    # Obtener todas las entradas de las colecciones LocalesComida y CentrosDeportivos
+    locales_comida = db['LocalesComida'].find()
+    centros_deportivos = db['CentrosDeportivos'].find()
 
-# Se crea una clase llamada Sessión,desde el generador de clases de SQLAlchemy sessionmaker.
-Session = sessionmaker(bind=engine) # Se usa el engine
-# Importante, se crea un objeto llamado session de tipo Session, que permite: permitir guardar, eliminar, actualizar y generar consultas a la base de datos.
-session = Session()
+    print("Conexión a la base de datos establecida correctamente.")
+except pymongo.errors.ConnectionFailure as e:
+    print(f"Error de conexión a la base de datos: {e}")
+except Exception as e:
+    print(f"Error inesperado: {e}")
 
-# Obtener todos los registros de la entidad Autor. Se hace uso del método query. all, significa que se obtiene todos los registros
-LocalesComida = session.query(LocalesComida).all()
+# Iterar y presentar la información de cada documento en LocalesComida
+print("Locales Comida:")
+for local in locales_comida:
+    print(local)
 
-CentrosDeportivos  = session.query(CentrosDeportivos).all()
-# La variable lista_autores, tendrá un listado de objetos de tipo Autor.
-
-# se realiza un proceso iterativo para presentar la información
-# de cada objeto.
-for l in LocalesComida:
-  print(l)
-for l in CentrosDeportivos:   
-    print(l)
+# Iterar y presentar la información de cada documento en CentrosDeportivos
+print("Centros Deportivos:")
+for centro in centros_deportivos:
+    print(centro)

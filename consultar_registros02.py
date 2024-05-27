@@ -1,32 +1,26 @@
-from sqlalchemy.orm import sessionmaker
-# se importa la clase(s) del
-# archivo crear_entidades
-from crear_entidades import LocalesComida
-from crear_entidades import CentrosDeportivos
-# se importa el engine
-from base_datos import engine
+import pymongo
 
-# Se crea una clase llamada Sessión,
-# desde el generador de clases de SQLAlchemy
-# sessionmaker.
-Session = sessionmaker(bind=engine) # Se usa el engine
-# Importante, se crea un objeto llamado session
-# de tipo Session, que permite: permitir guardar, eliminar,
-# actualizar y generar consultas a la base de datos.
-session = Session()
+# Conectar a MongoDB local
+try:
+    client = pymongo.MongoClient('mongodb://localhost:27017/')
+    db = client['mi_base_de_datos']  # Reemplaza con el nombre de tu base de datos
 
-# Obtener todos los registros de la entidad Autor con una(s) condición.
-# Se hace uso del método query.
-# filter, permite agregrar condiciones a la búsqueda, con base
-# a las propiedades de la entidad
-LocalesComida  = session.query(LocalesComida).filter(LocalesComida.nombre=="Mama luna")
-CentrosDeportivos = session.query(CentrosDeportivos).filter(CentrosDeportivos.nombre=="El quilamo")
-# La variable lista_autores, tendrá un listado de objetos de tipo Autor que
-# tengan en la propiedad de nacionalidad el valor: ecuatoriana
+    print("Conexión a la base de datos establecida correctamente.")
+except pymongo.errors.ConnectionFailure as e:
+    print(f"Error de conexión a la base de datos: {e}")
+except Exception as e:
+    print(f"Error inesperado: {e}")
 
-# se realiza un proceso iterativo para presentar la información
-# de cada objeto.
-for l in LocalesComida:
-        print(l)
-for l in CentrosDeportivos:
-        print(l)
+# Obtener todos los registros de la colección LocalesComida con la condición especificada
+locales_comida = db['LocalesComida'].find({"nombre": "KFC"})
+centros_deportivos = db['CentrosDeportivos'].find({"nombre": "Cancha Aventura"})
+
+# Iterar y presentar la información de cada documento en LocalesComida
+print("Locales Comida:")
+for local in locales_comida:
+    print(local)
+
+# Iterar y presentar la información de cada documento en CentrosDeportivos
+print("Centros Deportivos:")
+for centro in centros_deportivos:
+    print(centro)
