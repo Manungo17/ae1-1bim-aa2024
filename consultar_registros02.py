@@ -19,8 +19,8 @@ session = Session()
 # Se hace uso del método query.
 # filter, permite agregrar condiciones a la búsqueda, con base
 # a las propiedades de la entidad
-LocalesComida  = session.query(LocalesComida).filter(LocalesComida.nombre=="Pizza Italia")
-CentrosDeportivos = session.query(CentrosDeportivos).filter(CentrosDeportivos.nombre=="Piscina Olímpica")
+LocalesComida  = session.query(LocalesComida).filter(LocalesComida.nombre=="Mama luna")
+CentrosDeportivos = session.query(CentrosDeportivos).filter(CentrosDeportivos.nombre=="El quilamo")
 # La variable lista_autores, tendrá un listado de objetos de tipo Autor que
 # tengan en la propiedad de nacionalidad el valor: ecuatoriana
 
