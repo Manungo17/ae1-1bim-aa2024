@@ -13,16 +13,16 @@ except Exception as e:
 
 # Ejemplo de datos de locales de comida
 locales_comida = [
-    {"nombre": "El Sabor Ecuatoriano", "tipo_comida": "Ecuatoriana", "direccion": "Av. 10 de Agosto y 12 de Octubre", "horario_atencion": "Lunes a Domingo: 10am - 10pm", "calificacion": 5},
-    {"nombre": "Pizza Italia", "tipo_comida": "Italiana", "direccion": "Calle Rocafuerte y Bolivar", "horario_atencion": "Martes a Sabado: 12pm - 11pm", "calificacion": 4},
-    {"nombre": "Sushi Wok", "tipo_comida": "Asiática", "direccion": "Av. Amazonas y Eloy Alfaro", "horario_atencion": "Miércoles a Domingo: 1pm - 12am", "calificacion": 5}
+    {"nombre": "Mama luna", "tipo_comida": "comidas tipicas", "direccion": "juan de la cruz", "horario_atencion": "Lunes a Domingo", "calificacion": 3},
+    {"nombre": "toro loco", "tipo_comida": "cortes finos", "direccion": "av 29 de mayo y salinas", "horario_atencion": "Martes a domingo", "calificacion": 3},
+    {"nombre": "restaurant lulu", "tipo_comida": "desayunos naturales", "direccion": "sector centro", "horario_atencion": "lunes a domingo", "calificacion": 4}
 ]
 
 # Ejemplo de datos de centros deportivos
 centros_deportivos = [
-    {"nombre": "Gimnasio Power", "tipo_deporte": "Musculación y Cardio", "direccion": "Av. Patria Nueva y 6 de Diciembre", "horario_atencion": "Lunes a Viernes: 6am - 10pm, Sábados: 8am - 1pm", "costo_membresia": 50},
-    {"nombre": "Piscina Olímpica", "tipo_deporte": "Natación", "direccion": "Calle Cumandá y Veintimilla", "horario_atencion": "Lunes a Domingo: 7am - 9pm", "costo_membresia": 30},
-    {"nombre": "Complejo Deportivo Los Olivos", "tipo_deporte": "Fútbol, Tenis, Baloncesto", "direccion": "Av. Simón Bolívar y Mariscal Sucre", "horario_atencion": "Lunes a Domingo: 8am - 10pm", "costo_membresia": 20}
+    {"nombre": "el quilamo", "tipo_deporte": "karete doo", "direccion": "sevilla", "horario_atencion": "lunes a viernes", "costo_membresia": 22},
+    {"nombre": "gim cross", "tipo_deporte": "gim", "direccion": "sector vera cruz", "horario_atencion": "viernes, sabado,domingo", "costo_membresia": 15},
+    {"nombre": "los canelos", "tipo_deporte": "ecuaboley", "direccion": "la barbacoa", "horario_atencion": "lunes a viernes", "costo_membresia": 15}
 ]
 
 try:
