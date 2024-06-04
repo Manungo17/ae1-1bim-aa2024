@@ -20,9 +20,9 @@ locales_comida = [
 
 # Ejemplo de datos de centros deportivos
 centros_deportivos = [
-    {"nombre": "el quilamo", "tipo_deporte": "karete doo", "direccion": "sevilla", "horario_atencion": "lunes a viernes", "costo_membresia": 22},
-    {"nombre": "gim cross", "tipo_deporte": "gim", "direccion": "sector vera cruz", "horario_atencion": "viernes, sabado,domingo", "costo_membresia": 15},
-    {"nombre": "los canelos", "tipo_deporte": "ecuaboley", "direccion": "la barbacoa", "horario_atencion": "lunes a viernes", "costo_membresia": 15}
+    {"nombre": "el quilamo", "tipo_deporte": "karete doo", "direccion": "sevilla", "horario_atencion": "lunes a viernes", "calificacion": 22},
+    {"nombre": "gim cross", "tipo_deporte": "gim", "direccion": "sector vera cruz", "horario_atencion": "viernes, sabado,domingo", "calificacion": 15},
+    {"nombre": "los canelos", "tipo_deporte": "ecuaboley", "direccion": "la barbacoa", "horario_atencion": "lunes a viernes", "calificacion": 15}
 ]
 
 try:
